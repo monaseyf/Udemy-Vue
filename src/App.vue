@@ -1,17 +1,32 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <product-three/>
+    <learning-exp/>
+    <!-- <function/>
+    <ProductOne/>
+    <ProductTwo/>
+     -->
+    
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Function from './components/function.vue'
+import learningExp from './components/learningExp'
+import LearningExp from './components/learningExp.vue'
+import ProductOne from './components/ProductOne.vue'
+import ProductThree from './components/ProductThree.vue'
+import ProductTwo from './components/ProductTwo.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    ProductOne,
+    ProductTwo,
+    ProductThree,
+    Function,
+    LearningExp,
+
   }
 }
 </script>
