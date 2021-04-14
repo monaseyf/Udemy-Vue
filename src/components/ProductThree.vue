@@ -22,7 +22,7 @@ export default {
   },
   methods : {
       addOne: function(){
-           this.$store.commit('increment');
+           this.$store.dispatch('increment');
       },
      
   },

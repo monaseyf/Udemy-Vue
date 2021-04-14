@@ -2,6 +2,8 @@
   <div id="app">
     <product-three/>
     <learning-exp/>
+    <user-experiences/>
+    <test/>
     <!-- <function/>
     <ProductOne/>
     <ProductTwo/>
@@ -17,6 +19,8 @@ import LearningExp from './components/learningExp.vue'
 import ProductOne from './components/ProductOne.vue'
 import ProductThree from './components/ProductThree.vue'
 import ProductTwo from './components/ProductTwo.vue'
+import UserExperiences from './components/userExperiences.vue'
+import test from './components/test.vue'
 
 export default {
   name: 'App',
@@ -25,14 +29,16 @@ export default {
     ProductTwo,
     ProductThree,
     Function,
+    test,
     LearningExp,
+    UserExperiences,
 
   }
 }
 </script>
 
 <style>
-#app {
+    UserExperiencesapp {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

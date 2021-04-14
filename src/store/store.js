@@ -39,6 +39,17 @@ export const store = new Vuex.Store({
         state.counter = state.counter + payload.value;
       }
   },
+  // actions: {
+  //   increment(context) {
+  //     setTimeout(function () {
+  //       context.commit('increment');
+  //     }, 2000);
+  //   },
+  //   increase(context, payload) {
+  //     context.commit('increase', payload);
+  //   }
+  //     }
+    
   getters: {
     finalgetter(state) {
       return state.counter * 3;
