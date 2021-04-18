@@ -8,11 +8,11 @@
              <li v-for="item in group.items" 
              :key="item.name"
                v-text="item"
-               @click="openSubMenu()">
+               v-on:click="openSubMenu">
              </li>
              <div > 
                     <ul>
-                        <li v-for="item in subItem" :key="item.name" > {{item.name}}</li>
+                        <li v-for="item in group.items.item1" :key="item.name" > {{item.SubName}}</li>
                     </ul>
 
                 </div> 
@@ -47,9 +47,7 @@ export default {
     groups(){
       return this.$store.state.groups
     },
-    itemOne(){
-      return this.$store.state.itemOne
-    }
+    
     
   },
    methods: {
