@@ -7,12 +7,19 @@
           <ul v-show="group.open">
              <li v-for="item in group.items" 
              :key="item.name"
-              v-text="item">
+               v-text="item"
+               @click="openSubMenu()">
              </li>
+             <div > 
+                    <ul>
+                        <li v-for="item in subItem" :key="item.name" > {{item.name}}</li>
+                    </ul>
+
+                </div> 
           </ul>
       </div>
       
-        <child-product-one/> 
+        <!--<child-product-one/> -->
   </div>
   
 </template>
@@ -25,7 +32,15 @@ export default {
   components: { ChildProductOne },
   data () {
     return {
-
+      "subItem": [
+          {name: "subitem1", open: false},
+          {name: "subitem2", open: false},
+          {name: "subitem3", open: false},
+          {name: "subitem4", open: false},
+          {name: "subitem5", open: false},
+          {name: "subitem6", open: false},
+          {name: "subitem7", open: false},
+      ]
     }
   },
   computed: {
@@ -38,7 +53,10 @@ export default {
     
   },
    methods: {
-      
+      openSubMenu(){
+        console.log('test')
+        this.subItem.open = true
+      }
     }
 }
 </script>
@@ -47,6 +65,11 @@ export default {
 #product-one {
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+}
+h2 {
+  justify-content: center;
+  display: flex;
+  background-color: bisque;
 }
 #product-one a{
   padding-left: 10px;
