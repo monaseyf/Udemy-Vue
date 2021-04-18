@@ -1,62 +1,59 @@
 <template>
   <div id="product-one">
-      <h2>Product List One</h2>
-      <ul>
-          <li v-for="product in saleProducts" :key="product.price" >
-              <span class="name">{{product.name}}</span>
-              <span class="price">{{product.price}}</span>
-          </li>
-      </ul>
-      <button v-on:click="reducePrice">ReducePrice</button>
+      <h2>Products</h2>
+
+      <div v-for="group in groups" :key="group.name">
+        <a @click="group.open = !group.open" v-text="group.name"></a>
+          <ul v-show="group.open">
+             <li v-for="item in group.items" 
+             :key="item.name"
+              v-text="item">
+             </li>
+          </ul>
+      </div>
+      
+        <child-product-one/> 
   </div>
+  
 </template>
 
 <script>
 
+import ChildProductOne from './ChildProductOne.vue'
+
 export default {
+  components: { ChildProductOne },
   data () {
     return {
 
     }
   },
   computed: {
-    products () {
-      return this.$store.state.products
+    groups(){
+      return this.$store.state.groups
     },
-    saleProducts () {
-      return this.$store.getters.saleProducts
+    itemOne(){
+      return this.$store.state.itemOne
     }
+    
   },
    methods: {
-        reducePrice: function(){
-            /* this.$store.state.products.forEach( product => {
-                product.price -= 1
-            }); */
-            this.$store.commit('reducePrice');
-        }
+      
     }
 }
 </script>
 
 <style scoped>
-#product-one{
-    background: #FFF8B1;
-    box-shadow: 1px 2px 3px rgba(0,0,0,0.2);
-    margin-bottom: 30px;
-    padding: 10px 20px;
+#product-one {
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
 }
-#product-one ul{
-    padding: 0;
+#product-one a{
+  padding-left: 10px;
+  color: rgb(83, 83, 85);
 }
-#product-one li{
-    display: inline-block;
-    margin-right: 10px;
-    margin-top: 10px;
-    padding: 20px;
-    background: rgba(255,255,255,0.7);
+#product-one a :active{
+ color: #e058f7;
 }
-.price{
-    font-weight: bold;
-    color: #E8800C;
-}
+
 </style>

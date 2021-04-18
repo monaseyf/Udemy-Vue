@@ -1,29 +1,11 @@
 <template>
   <div id="app">
-    
-    <v-app>
-    <v-app-bar app color="blue-gray" >
-      <v-toolbar-title>Online Shop!</v-toolbar-title>
-      <v-spacer></v-spacer>
-
-    </v-app-bar>
-    <v-content >
-      <v-col class="col-lg-3 col-md-6 col-sm-12">
-      <ProductOne/>
-     </v-col>
-      <router-view ></router-view>
-    </v-content>
- 
-  </v-app>
-    <!-- <menu/> -->
-    <!--<test name="mona" phoneNumber="44232931" isFaviroute="1"/>
-    <test name="amir" phoneNumber="44232932" isFaviroute="0"/> -->
-    <!-- <myFilter/> -->
-    <!-- <learning-exp/>
-    <user-experiences/> 
-     <function/>-->
-     
-    <!--<ProductTwo/>
+    <test/>
+    <learning-exp/>
+    <user-experiences/>
+    <!-- <function/>
+    <ProductOne/>
+    <ProductTwo/>
     <product-three/>
      -->
     
@@ -39,10 +21,6 @@ import ProductThree from './components/ProductThree.vue'
 import ProductTwo from './components/ProductTwo.vue'
 import UserExperiences from './components/userExperiences.vue'
 import test from './components/test.vue'
-import menu from './components/menu.vue'
-
-
-// import myFilter from './components/myFilter.vue'
 
 export default {
   name: 'App',
@@ -54,23 +32,28 @@ export default {
     test,
     LearningExp,
     UserExperiences,
- 
-    // menu,
-    // myFilter,
 
   },
-data() {
-    return {
-      // links: [
-      //   {
-      //     label: " ProductTwo",
-      //     url: "/ ProductTwo",
-      //   },
-      // ],
-    };
-  },
+
   methods:{
-   
+    beforeCreate() {
+        console.log('beforeCreated()')
+    },
+    created() {
+        console.log('created()')
+    },
+    beforeMount() {
+        console.log('beforeMount()')
+    },
+    mounted() {
+        console.log('mounted()')
+    },
+    beforeUpdate() {
+        console.log('beforeUpdate()')
+    },
+    updated() {
+        console.log('updated()')
+    },
   }
    
 }
