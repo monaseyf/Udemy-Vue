@@ -18,7 +18,8 @@ export const store = new Vuex.Store({
         "name": "CLOTHING",
         "open": false,
         "items": [
-          "item 1"
+          {name:"item 1",SubName:['itemA','itemB','itemC','itemD']},
+          {name:"item2", SubName:['itemA','itemB','itemC','itemD']},
         ]
       },
      
