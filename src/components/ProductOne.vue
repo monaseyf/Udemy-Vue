@@ -12,9 +12,9 @@
              <li v-for="item in group.items" 
              :key="item.name"
                v-on:click="openSubMenu"  v-text="item">
-                     <!-- <ul  type='I'>
-                        <li v-for="item in SubName" :key="item.name"> </li>
-                    </ul>  -->
+                    <!-- <ul  type='I'>
+                        <li v-for="item in item.SubItems" :key="item.name">{{item}} </li>
+                    </ul>   -->
               </li>
           </ul>
       </div>
@@ -44,7 +44,7 @@ export default {
    methods: {
       openSubMenu(){
         console.log('test')
-        this.subItem.open = true
+        this.item.open = true
       }
     }
 }
