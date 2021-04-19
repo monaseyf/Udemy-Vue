@@ -1,46 +1,37 @@
 <template>
   <div id="product-one">
+
       <h2>Products</h2>
 
       <div v-for="group in groups" :key="group.name">
+
         <a @click="group.open = !group.open" v-text="group.name"></a>
+
           <ul v-show="group.open">
+            
              <li v-for="item in group.items" 
              :key="item.name"
-               v-text="item"
-               v-on:click="openSubMenu">
-             </li>
-             <div > 
-                    <ul>
-                        <li v-for="item in group.items.item1" :key="item.name" > {{item.SubName}}</li>
-                    </ul>
-
-                </div> 
+               v-on:click="openSubMenu"  v-text="item">
+                     <!-- <ul  type='I'>
+                        <li v-for="item in SubName" :key="item.name"> </li>
+                    </ul>  -->
+              </li>
           </ul>
       </div>
       
-        <!--<child-product-one/> -->
   </div>
   
 </template>
 
 <script>
 
-import ChildProductOne from './ChildProductOne.vue'
+
 
 export default {
-  components: { ChildProductOne },
+
   data () {
     return {
-      "subItem": [
-          {name: "subitem1", open: false},
-          {name: "subitem2", open: false},
-          {name: "subitem3", open: false},
-          {name: "subitem4", open: false},
-          {name: "subitem5", open: false},
-          {name: "subitem6", open: false},
-          {name: "subitem7", open: false},
-      ]
+      
     }
   },
   computed: {
@@ -63,6 +54,7 @@ export default {
 #product-one {
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  margin-top: 50px;
 }
 h2 {
   justify-content: center;

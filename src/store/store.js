@@ -18,8 +18,10 @@ export const store = new Vuex.Store({
         "name": "CLOTHING",
         "open": false,
         "items": [
-          {name:"item 1",SubName:['itemA','itemB','itemC','itemD']},
-          {name:"item2", SubName:['itemA','itemB','itemC','itemD']},
+          "item 1",
+          "item 2",
+          // {name:"item 1",SubName:['itemA','itemB','itemC','itemD']},
+          // {name:"item 2", SubName:['itemA','itemB','itemC','itemD']},
         ]
       },
      
@@ -76,42 +78,11 @@ export const store = new Vuex.Store({
     };
   }, 
   getters: {
-    saleProducts: (state) => {
-      var saleProducts = state.products.map(product => {
-        return {
-          name: '**' + product.name + '**',
-          price: product.price / 2
-        }
-      })
-      return saleProducts
-    },
-    finalgetter(state) {
-      return state.counter * 3;
-      }
+    
     },
     mutations: {
-      reducePrice: state => {
-            state.products.forEach( product => {
-                product.price -= 1
-            });
-      },
-      increment: state => {
-        state.counter = state.counter + 2;
-      },
-      increase(state, payload) {
-        state.counter = state.counter + payload.value;
-      }
+     
   },
-  
-  // actions: {
-  //   increment(context) {
-  //     setTimeout(function () {
-  //       context.commit('increment');
-  //     }, 2000);
-  //   },
-  //   increase(context, payload) {
-  //     context.commit('increase', payload);
-  //   }
-  //     }
+
     
 })
