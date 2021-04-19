@@ -1,23 +1,23 @@
 <template>
-    <div id="productThree">
+    <div id="product">
         <select v-model="selectedRole" class="option">
             <option  v-bind:value="null"> filter by type </option>
-            <option :key="item.id" v-for="item in people" > {{ item.role }} </option>
+            <option :key="item.id" v-for="item in product" > {{ item.role }} </option>
         </select>   
       
      <v-row class="myAllCard">
       <v-card class="myCard"
-       v-for="person in people" 
-      :key="person.id" v-show="selectedRole === null || person.role === selectedRole">
-      <v-card-title v-on:click="toggleDisplayDetails(person)">
-          {{person.fullName}}
+       v-for="item in product" 
+      :key="item.id" v-show="selectedRole === null || item.role === selectedRole">
+      <v-card-title v-on:click="toggleDisplayDetails(item)">
+          {{item.fullName}}
       </v-card-title>
       <v-img class="myPicture"
-        v-bind:src="person.src"
+        v-bind:src="item.src"
       ></v-img>
-      <v-card-text v-show="person.DisplayDetails">
+      <v-card-text v-show="item.DisplayDetails">
           <br/>
-          Type: {{person.role}}
+          Type: {{item.role}}
       </v-card-text>
       </v-card>
       </v-row>
@@ -28,7 +28,7 @@
         data() {
             return {
               //  image: { backgroundImage: `url(${require("@/images/porfolio/5.jpg")})` },
-                people: [
+                product: [
                         { id: 1, fullName: `lipstick light`,  role: `beauty`, DisplayDetails: true,
                           src: require("../assets/lipstick.jpg")},
 
@@ -53,9 +53,6 @@
                         { id: 8, fullName: `skirt`,  role: `clothing`, DisplayDetails: true,
                           src: require("../assets/skirt.jpg") },
                     ],
-                    picture:[
-                        { backgroundImage: `url(${require("@/assets/lipstik.jpg")})` },
-                    ],
                     selectedRole: null,
             }
         },
@@ -65,8 +62,8 @@
         },
 
         methods: {
-             toggleDisplayDetails: function (person) {
-                 person.DisplayDetails = !person.DisplayDetails
+             toggleDisplayDetails: function (item) {
+                 item.DisplayDetails = !item.DisplayDetails
              },
         },
 
@@ -74,7 +71,7 @@
     }
 </script>
 <style scoped>
-#productThree {
+#product {
   margin-top: 50px;
 }
 

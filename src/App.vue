@@ -10,10 +10,11 @@
     <v-content >
       <v-row class="mainBody">
         <v-col class="col-lg-3 col-md-6 col-sm-12">
-        <ProductOne/>
+        <ProductMenu/>
+
       </v-col>
         <v-col class="col-lg-9 col-md-6 col-sm-12">
-        <ProductThree/>
+        <Product/>
       </v-col>
       </v-row>
       
@@ -28,19 +29,17 @@
 
 <script>
 
-import ProductOne from './components/ProductOne.vue'
-import ProductThree from './components/ProductThree.vue'
 
-
+import ProductMenu from './components/ProductMenu.vue'
+import Product from './components/Product.vue'
 
 // import myFilter from './components/myFilter.vue'
 
 export default {
   name: 'App',
   components: {
-    ProductOne,
-    ProductThree,
- 
+    ProductMenu,
+    Product,
 
   },
 data() {

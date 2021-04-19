@@ -1,5 +1,5 @@
 <template>
-  <div id="product-one">
+  <div id="menu">
 
       <h2>Products</h2>
 
@@ -51,7 +51,7 @@ export default {
 </script>
 
 <style scoped>
-#product-one {
+#menu {
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   margin-top: 50px;
@@ -61,11 +61,11 @@ h2 {
   display: flex;
   background-color: bisque;
 }
-#product-one a{
+#menu a{
   padding-left: 10px;
   color: rgb(83, 83, 85);
 }
-#product-one a :active{
+#menu a :active{
  color: #e058f7;
 }
 
