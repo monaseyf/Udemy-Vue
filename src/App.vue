@@ -11,6 +11,7 @@
       <v-col class="col-lg-3 col-md-6 col-sm-12">
       <ProductOne/>
      </v-col>
+     <nested-loop/>
       <router-view ></router-view>
     </v-content>
  
@@ -40,6 +41,7 @@ import ProductTwo from './components/ProductTwo.vue'
 import UserExperiences from './components/userExperiences.vue'
 import test from './components/test.vue'
 import menu from './components/menu.vue'
+import NestedLoop from './components/nestedLoop.vue'
 
 
 // import myFilter from './components/myFilter.vue'
@@ -54,6 +56,7 @@ export default {
     test,
     LearningExp,
     UserExperiences,
+    NestedLoop,
  
     // menu,
     // myFilter,
