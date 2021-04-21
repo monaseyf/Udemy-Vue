@@ -6,6 +6,7 @@
       <v-spacer></v-spacer>
     </v-app-bar>
     <v-content >
+       <!-- <NewFriend/> -->
       <v-row class="mainBody">
         <!-- <v-col class="col-lg-3 col-md-6 col-sm-12">
         <ProductOne/>
@@ -14,17 +15,15 @@
         <ProductThree/>
       </v-col> -->
       </v-row>
-      <FriendContact v-for="friend in friends"
+     
+      <!-- <FriendContact v-for="friend in friends"
       :key="friend.id"
       :id="friend.id"
       :name="friend.name"
       :phone-number="friend.phone"
       :email-address="friend.email"
       :is-favorite="friend.isFavorite"
-      @toggle-favorite="toggleFaviroteStatus"/>
-
-      <NewFriend/>
-
+      @toggle-favorite="toggleFaviroteStatus"/> -->
       <router-view ></router-view>
     </v-content>
  
@@ -38,8 +37,8 @@
 
 import ProductOne from './components/ProductOne.vue'
 import ProductThree from './components/ProductThree.vue'
-import FriendContact from './components/FriendContact.vue'
-import NewFriend from './components/NewFriend.vue'
+import FriendContact from './components/season8/FriendContact.vue'
+import NewFriend from './components/season8/NewFriend.vue'
 
 // import myFilter from './components/myFilter.vue'
 
@@ -81,15 +80,42 @@ data() {
 </script>
 
 <style>
-    UserExperiencesapp {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+
+#app li, #app form {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  margin: 3rem auto;
+  border-radius: 10px;
+  padding: 1rem;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  width: 90%;
+  max-width: 40rem;
 }
-.mainBody{
-  justify-content: center;
+
+#app input {
+  font: inherit;
+  padding: 0.15rem;
+  border-style: solid;
+}
+#app label {
+  font-weight: bold;
+  margin-right: 1rem;
+  width: 7rem;
+  display: inline-block;
+}
+#app button {
+  cursor: pointer;
+  border: 1px solid palevioletred;
+  background-color: palevioletred;
+  color: white;
+  padding: 0.5rem 0.5rem;
+  box-shadow:1px 1px 1px rgba(0, 0, 0, 0.26);
+  border-radius: 4px;
+}
+#app button:hover,
+#app button:active {
+  background-color: palevioletred;
+}
+.innerPart{
+  margin:2rem auto;
 }
 </style>

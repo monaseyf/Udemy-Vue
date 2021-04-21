@@ -6,7 +6,7 @@ import BaseCard from './UI/BaseCard'
 import VueRouter from 'vue-router'
 import router from './router.js'
 import vuetify from '@/plugins/vuetify'
-import NewFriend from './components/NewFriend'
+import NewFriend from './components/season8/NewFriend'
 
 Vue.use(VueRouter)
 Vue.config.productionTip = false
