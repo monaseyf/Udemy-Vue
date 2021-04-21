@@ -1,5 +1,5 @@
 <template>
-  <div id="product-one">
+  <div id="menu">
 
       <h2>Products</h2>
 
@@ -12,9 +12,9 @@
              <li v-for="item in group.items" 
              :key="item.name"
                v-on:click="openSubMenu"  v-text="item">
-                     <!-- <ul  type='I'>
-                        <li v-for="item in SubName" :key="item.name"> </li>
-                    </ul>  -->
+                    <!-- <ul  type='I'>
+                        <li v-for="item in item.SubItems" :key="item.name">{{item}} </li>
+                    </ul>   -->
               </li>
           </ul>
       </div>
@@ -44,14 +44,14 @@ export default {
    methods: {
       openSubMenu(){
         console.log('test')
-        this.subItem.open = true
+        this.item.open = true
       }
     }
 }
 </script>
 
 <style scoped>
-#product-one {
+#menu {
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   margin-top: 50px;
@@ -61,11 +61,11 @@ h2 {
   display: flex;
   background-color: bisque;
 }
-#product-one a{
+#menu a{
   padding-left: 10px;
   color: rgb(83, 83, 85);
 }
-#product-one a :active{
+#menu a :active{
  color: #e058f7;
 }
 

@@ -14,6 +14,13 @@
         <v-col class="col-lg-9 col-md-6 col-sm-12">
         <ProductThree/>
       </v-col> -->
+        <v-col class="col-lg-3 col-md-6 col-sm-12">
+        <ProductMenu/>
+
+      </v-col>
+        <v-col class="col-lg-9 col-md-6 col-sm-12">
+        <Product/>
+      </v-col>
       </v-row>
      
       <!-- <FriendContact v-for="friend in friends"
@@ -40,6 +47,9 @@ import ProductThree from './components/ProductThree.vue'
 import FriendContact from './components/season8/FriendContact.vue'
 import NewFriend from './components/season8/NewFriend.vue'
 
+import ProductMenu from './components/ProductMenu.vue'
+import Product from './components/Product.vue'
+
 // import myFilter from './components/myFilter.vue'
 
 export default {
@@ -49,6 +59,9 @@ export default {
     ProductThree,
     FriendContact,
     NewFriend,
+    ProductMenu,
+    Product,
+
   },
 data() {
     return {

@@ -20,8 +20,11 @@ export const store = new Vuex.Store({
         "items": [
           "item 1",
           "item 2",
-          // {name:"item 1",SubName:['itemA','itemB','itemC','itemD']},
-          // {name:"item 2", SubName:['itemA','itemB','itemC','itemD']},
+          //  {name:"item 1",open:true,SubItems:[
+          //   {name:'subItem1'},
+          //   {name:'subItem2'}
+          // ]},
+      
         ]
       },
      
@@ -34,9 +37,7 @@ export const store = new Vuex.Store({
           "item 2",
           "item 3",
           "item 4",
-          "item 5",
-          "item 6",
-          "item 7"
+
         ]
       },
       "GROUP C": {
@@ -57,10 +58,6 @@ export const store = new Vuex.Store({
           "item 1",
           "item 2",
           "item 3",
-          "item 4",
-          "item 5",
-          "item 6",
-          "item 7"
         ]
       },
       "GROUP E": {
@@ -70,8 +67,7 @@ export const store = new Vuex.Store({
           "item 1",
           "item 2",
           "item 3",
-          "item 4",
-          "item 5"
+
         ]
       }
     }
