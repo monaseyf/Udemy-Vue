@@ -6,14 +6,9 @@
       <v-spacer></v-spacer>
     </v-app-bar>
     <v-content >
-       <!-- <NewFriend/> -->
+       <NewFriend @add-contact="addContact"/> 
       <v-row class="mainBody">
-        <!-- <v-col class="col-lg-3 col-md-6 col-sm-12">
-        <ProductOne/>
-      </v-col>
-        <v-col class="col-lg-9 col-md-6 col-sm-12">
-        <ProductThree/>
-      </v-col> -->
+       
         <v-col class="col-lg-3 col-md-6 col-sm-12">
         <ProductMenu/>
 
@@ -42,8 +37,6 @@
 
 <script>
 
-import ProductOne from './components/ProductOne.vue'
-import ProductThree from './components/ProductThree.vue'
 import FriendContact from './components/season8/FriendContact.vue'
 import NewFriend from './components/season8/NewFriend.vue'
 
@@ -55,8 +48,7 @@ import Product from './components/Product.vue'
 export default {
   name: 'App',
   components: {
-    ProductOne,
-    ProductThree,
+    
     FriendContact,
     NewFriend,
     ProductMenu,
@@ -87,6 +79,9 @@ data() {
       this.friends.find((friend) => friend.id === friendId );
        identifiedFriend.isFavorite = !identifiedFriend.isFavorite
    }
+  },
+  addContact(){
+
   }
    
 }
