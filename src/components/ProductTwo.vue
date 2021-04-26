@@ -7,6 +7,8 @@
                <span class="price">{{product.price}}</span>
           </li>
       </ul>
+      <p>{{counter}}</p>
+      <button  @click="addOne">add me please</button>
   </div>
 </template>
 
@@ -21,6 +23,14 @@ export default {
   computed: {
     products () {
       return this.$store.state.products
+    },
+    counter() {
+      return this.$store.state.counter;
+    },
+  },
+  methods:{
+    addOne(){
+      this.$store.commit('increment');
     }
   }
 }

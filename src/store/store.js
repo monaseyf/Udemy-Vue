@@ -7,12 +7,12 @@ export const store = new Vuex.Store({
   state() {
     return {
     counter:0,
-    // products: [
-    //   { name: 'Tshirt', price: 20 },
-    //   { name: 'skirt', price: 40 },
-    //   { name: 'jeen', price: 50 },
-    //   { name: 'shirt', price: 10 }
-    //   ],
+    products: [
+      { name: 'Tshirt', price: 20 },
+      { name: 'skirt', price: 40 },
+      { name: 'jeen', price: 50 },
+      { name: 'shirt', price: 10 }
+      ],
     groups : {
       "GROUP A": {
         "name": "CLOTHING",
@@ -70,14 +70,17 @@ export const store = new Vuex.Store({
 
         ]
       }
-    }
+      },
+    
     };
   }, 
   getters: {
     
     },
     mutations: {
-     
+      increment(state) {
+        state.counter = state.counter + 2;
+     }
   },
 
     
