@@ -6,16 +6,36 @@
           </v-toolbar-title>
       <v-spacer></v-spacer>
     </v-app-bar>
-    <v-content class="myContent">
-  
-    <input-test/>
-    <login/>
- <!-- <input type="text"  v-model="currentUserInput">
-      <button @click="setText">Set Text</button>
-      <p>{{ message }}</p> -->
-    
+    <v-main >
+       
+      
+        <UserAuth/>
+        <the-counter v-if="isAuth"/>
+        <product-two v-if="isAuth"/>
+        <!-- <NewFriend @add-contact="addContact"/>  -->
+        <!-- <v-col class="col-lg-3 col-md-6 col-sm-12">
+      
+      </v-col>
+        <v-col class="col-lg-9 col-md-6 col-sm-12">
+      
+      </v-col> -->
+        <!-- <v-col class="col-lg-3 col-md-6 col-sm-12">
+        <ProductMenu/>
+
+      </v-col>
+        <v-col class="col-lg-9 col-md-6 col-sm-12">
+        <Product/>
+      </v-col> -->
+      <!-- <FriendContact v-for="friend in friends"
+      :key="friend.id"
+      :id="friend.id"
+      :name="friend.name"
+      :phone-number="friend.phone"
+      :email-address="friend.email"
+      :is-favorite="friend.isFavorite"
+      @toggle-favorite="toggleFaviroteStatus"/> -->
       <router-view ></router-view>
-    </v-content>
+    </v-main>
  
   </v-app>
 
@@ -25,31 +45,25 @@
 
 <script>
 
-// import Form from './components/safarayaneh/Form.vue'
-// import FriendContact from './components/season8/FriendContact.vue'
-// import NewFriend from './components/season8/NewFriend.vue'
-// import ProductMenu from './components/ProductMenu.vue'
-// import Product from './components/Product.vue'
-// import ActiveElement from './components/ActiveElement.vue'
-// import ProductTwo from './components/ProductTwo.vue'
-import InputTest from './components/InputTest.vue'
-import Login from './components/vuetify/Login.vue';
-import {eventBus} from './main'; 
+import FriendContact from './components/season8/FriendContact.vue'
+import NewFriend from './components/season8/NewFriend.vue'
+import ProductMenu from './components/ProductMenu.vue'
+import Product from './components/Product.vue'
+import ProductTwo from './components/ProductTwo.vue'
+import TheCounter from './components/TheCounter.vue'
+import UserAuth from './components/UserAuth.vue'
+// import myFilter from './components/myFilter.vue'
 
 export default {
   name: 'App',
   components: {
-    
-    InputTest,
-    Login
-    // Form,
-    // ProductTwo,
-    // FriendContact,
-    // NewFriend,
-    // ProductMenu,
-    // Product,
-    // ActiveElement,
-
+    ProductTwo,
+    FriendContact,
+    NewFriend,
+    ProductMenu,
+    Product,
+    TheCounter,
+    UserAuth
   },
 data() {
     return {
@@ -87,18 +101,13 @@ data() {
       isFavorite: false
     };
     this.friends.push(newFriendContact);
-  },
-  setActiveComponent(cpm){
-    this.ActiveComponent = cpm;
-  },
-  // saveInput(event) {
-  //     this.currentUserInput = event.target.value;
-  //   },
-  //   setText() {
-  //      this.message = this.currentUserInput;
-  //   },
-  
-  }, 
+  },  
+},
+computed:{
+        isAuth(){
+            return this.$store.getters.userIsAuthenticated;
+        }
+    }
 }
 </script>
 
