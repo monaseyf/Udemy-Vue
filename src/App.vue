@@ -6,7 +6,7 @@
       <v-spacer></v-spacer>
     </v-app-bar>
     <v-content >
-       <!-- <NewFriend/> -->
+       <NewFriend @add-contact="addContact"/> 
       <v-row class="mainBody">
         <product-two/>
         </v-row>
@@ -84,6 +84,9 @@ data() {
       this.friends.find((friend) => friend.id === friendId );
        identifiedFriend.isFavorite = !identifiedFriend.isFavorite
    }
+  },
+  addContact(){
+
   }
    
 }
