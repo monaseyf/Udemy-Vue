@@ -1,31 +1,19 @@
 <template>
   <div id="app">
-    <v-app>
-    <v-app-bar app color="blue-gray" >
-      <v-toolbar-title>Online Shop!</v-toolbar-title>
+    <v-app class="myTitle">
+    <v-app-bar  app color="blue-gray" >
+      <v-toolbar-title >فرم استخدام تخصصی
+          </v-toolbar-title>
       <v-spacer></v-spacer>
     </v-app-bar>
-    <v-content >
-       <NewFriend @add-contact="addContact"/> 
-      <v-row class="mainBody">
-       
-        <v-col class="col-lg-3 col-md-6 col-sm-12">
-        <ProductMenu/>
-
-      </v-col>
-        <v-col class="col-lg-9 col-md-6 col-sm-12">
-        <Product/>
-      </v-col>
-      </v-row>
-     
-      <!-- <FriendContact v-for="friend in friends"
-      :key="friend.id"
-      :id="friend.id"
-      :name="friend.name"
-      :phone-number="friend.phone"
-      :email-address="friend.email"
-      :is-favorite="friend.isFavorite"
-      @toggle-favorite="toggleFaviroteStatus"/> -->
+    <v-content class="myContent">
+  
+    <input-test/>
+    <login/>
+ <!-- <input type="text"  v-model="currentUserInput">
+      <button @click="setText">Set Text</button>
+      <p>{{ message }}</p> -->
+    
       <router-view ></router-view>
     </v-content>
  
@@ -37,22 +25,30 @@
 
 <script>
 
-import FriendContact from './components/season8/FriendContact.vue'
-import NewFriend from './components/season8/NewFriend.vue'
-
-import ProductMenu from './components/ProductMenu.vue'
-import Product from './components/Product.vue'
-
-// import myFilter from './components/myFilter.vue'
+// import Form from './components/safarayaneh/Form.vue'
+// import FriendContact from './components/season8/FriendContact.vue'
+// import NewFriend from './components/season8/NewFriend.vue'
+// import ProductMenu from './components/ProductMenu.vue'
+// import Product from './components/Product.vue'
+// import ActiveElement from './components/ActiveElement.vue'
+// import ProductTwo from './components/ProductTwo.vue'
+import InputTest from './components/InputTest.vue'
+import Login from './components/vuetify/Login.vue';
+import {eventBus} from './main'; 
 
 export default {
   name: 'App',
   components: {
     
-    FriendContact,
-    NewFriend,
-    ProductMenu,
-    Product,
+    InputTest,
+    Login
+    // Form,
+    // ProductTwo,
+    // FriendContact,
+    // NewFriend,
+    // ProductMenu,
+    // Product,
+    // ActiveElement,
 
   },
 data() {
@@ -68,9 +64,10 @@ data() {
          phone:'0935 43 65 170',
          email:'mobin@gmail.com',
          isFavorite:true}
-       ]
-        
-
+       ],
+      ActiveComponent: 'active-element',
+      message: 'Vue is great!',
+      currentUserInput:'',
     };
   },
   methods:{
@@ -78,17 +75,37 @@ data() {
      const identifiedFriend =
       this.friends.find((friend) => friend.id === friendId );
        identifiedFriend.isFavorite = !identifiedFriend.isFavorite
-   }
+   },
+  
+  addNewContact(name, phone, email){
+     console.log('child Component')
+    const newFriendContact = {
+      id: new Date().toISOString(),
+      name: name,
+      phone: phone,
+      email: email,
+      isFavorite: false
+    };
+    this.friends.push(newFriendContact);
   },
-  addContact(){
-
-  }
-   
+  setActiveComponent(cpm){
+    this.ActiveComponent = cpm;
+  },
+  // saveInput(event) {
+  //     this.currentUserInput = event.target.value;
+  //   },
+  //   setText() {
+  //      this.message = this.currentUserInput;
+  //   },
+  
+  }, 
 }
 </script>
 
 <style>
-
+/* .myContent{
+  margin: 0 auto;
+} */
 #app li, #app form {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   margin: 3rem auto;
@@ -102,7 +119,7 @@ data() {
 #app input {
   font: inherit;
   padding: 0.15rem;
-  border-style: solid;
+  /* border-style: solid; */
 }
 #app label {
   font-weight: bold;
@@ -125,5 +142,10 @@ data() {
 }
 .innerPart{
   margin:2rem auto;
+}
+
+.myTitle{
+  float: right;
+  text-align: right;
 }
 </style>

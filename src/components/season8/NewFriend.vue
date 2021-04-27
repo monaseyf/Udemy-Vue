@@ -22,7 +22,7 @@
 <script>
 import BaseCard from '../../UI/BaseCard.vue'
 export default {
-    emits:['add-contact'],
+    // emits:['add-contact'],
   components: { BaseCard },
     data() {
         return {
@@ -31,14 +31,16 @@ export default {
           enteredEmail:'',  
         }
     },
+
     methods:{
-        submitData(){
-            this.$emit(
+        submitData(enteredName,enteredPhone,enteredEmail){
+           
+             this.$emit(
                 'add-contact',
                 this.enteredName,
                 this.enteredPhone,
                 this.enteredEmail
-            );
+             );
         },
     },
 }
