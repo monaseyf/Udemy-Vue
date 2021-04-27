@@ -1,0 +1,26 @@
+<template>
+<base-card>
+    <h2>Auth</h2>
+    <button @click="login" v-if="!isAuth">Login</button>
+    <button @click="logout" v-if="isAuth">Log out</button>
+</base-card>
+    
+</template>
+
+<script>
+export default {
+    methods:{
+        login(){
+            this.$store.dispatch('login');
+        },
+        logout(){
+            this.$store.dispatch('logout');
+        }
+    },
+    computed:{
+        isAuth(){
+            return this.$store.getters.userIsAuthenticated;
+        }
+    }
+}
+</script>

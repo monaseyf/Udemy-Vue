@@ -1,5 +1,6 @@
 <template>
-  <div id="product-list-two">
+<base-card>
+<div id="product-list-two">
       <h2>Product List Two</h2>
       <ul>
           <li v-for="product in products" :key="product.name">
@@ -9,12 +10,17 @@
       </ul>
       <p>{{counter}}</p>
       <button  @click="addOne">add me please</button>
+
   </div>
+  </base-card>
+  
 </template>
 
 <script>
+import BaseCard from '../UI/BaseCard.vue';
 
 export default {
+  components: { BaseCard },
   data () {
     return {
 
@@ -30,7 +36,12 @@ export default {
   },
   methods:{
     addOne(){
-      this.$store.commit('increment');
+      // this.$store.commit('increment');
+      this.$store.dispatch('increment')
+    },
+    addTwo(){
+      console.log('what is happened')
+      this.$store.getters.finalCounter;
     }
   }
 }

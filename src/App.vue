@@ -5,11 +5,13 @@
       <v-toolbar-title>Online Shop!</v-toolbar-title>
       <v-spacer></v-spacer>
     </v-app-bar>
-    <v-content >
-       <NewFriend @add-contact="addContact"/> 
-      <v-row class="mainBody">
-        <product-two/>
-        </v-row>
+    <v-main >
+       
+      
+        <UserAuth/>
+        <the-counter v-if="isAuth"/>
+        <product-two v-if="isAuth"/>
+        <!-- <NewFriend @add-contact="addContact"/>  -->
         <!-- <v-col class="col-lg-3 col-md-6 col-sm-12">
       
       </v-col>
@@ -32,7 +34,7 @@
       :is-favorite="friend.isFavorite"
       @toggle-favorite="toggleFaviroteStatus"/> -->
       <router-view ></router-view>
-    </v-content>
+    </v-main>
  
   </v-app>
 
@@ -47,7 +49,8 @@ import NewFriend from './components/season8/NewFriend.vue'
 import ProductMenu from './components/ProductMenu.vue'
 import Product from './components/Product.vue'
 import ProductTwo from './components/ProductTwo.vue'
-
+import TheCounter from './components/TheCounter.vue'
+import UserAuth from './components/UserAuth.vue'
 // import myFilter from './components/myFilter.vue'
 
 export default {
@@ -58,7 +61,8 @@ export default {
     NewFriend,
     ProductMenu,
     Product,
-
+    TheCounter,
+    UserAuth
   },
 data() {
     return {
@@ -85,9 +89,11 @@ data() {
        identifiedFriend.isFavorite = !identifiedFriend.isFavorite
    }
   },
-  addContact(){
-
-  }
+   computed:{
+        isAuth(){
+            return this.$store.getters.userIsAuthenticated;
+        }
+    }
    
 }
 </script>
