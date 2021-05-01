@@ -20,24 +20,26 @@ import {eventBus} from '../main';
 export default {
     data(){
         return{
-            currentUserInput:'',
-            message: ''
+
         }
     },
     computed: {
-    // get () {
-    //   return this.$store.state.enteredName
-    // },
-    // set (newValue) {
-    //   return this.$store.commit('setMessage', newValue)
-    // }
+   message: {
+    get () {
+      return this.$store.state.obj.message
+    },
+    set (value) {
+      this.$store.commit('updateMessage', value)
+       console.log('value')
+    }
+  }
   },
   methods:{
-       submit() {
-        if(this.message !== ''){
-         eventBus.$emit('name', this.message);
-        }
-      }
+      //  submit() {
+      //   if(this.message !== ''){
+      //    eventBus.$emit('name', this.message);
+      //   }
+      // }
  
     // saveInput(event) {
     //   this.currentUserInput = event.target.value;
@@ -52,6 +54,9 @@ export default {
     //     eventBus.$emit('showInput', this.message);
        
     // }
+    submit(){
+     console.log('message.value')
+}
   },
 
 }

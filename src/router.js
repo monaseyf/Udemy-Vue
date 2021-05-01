@@ -15,8 +15,20 @@ export default new VueRouter({
           path: "/ProductTwo",
           name: "ProductTwo",
           component: () =>
-              import ( /* webpackChunkName: "about" */ "./components/ProductTwo.vue"),
+              import ("./components/ProductTwo.vue"),
       },
+      {
+        path: "/cart",
+        name: "cart",
+        component: () =>
+            import ("./components/shopping/cart.vue"),
+      },
+      {
+        path: "/productForShop",
+        name: "productForShop",
+        component: () =>
+            import ("./components/shopping/productForShop.vue"),
+      }
     
   ],
 });

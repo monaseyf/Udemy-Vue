@@ -1,17 +1,19 @@
 <template>
   <div id="app">
-    <v-app class="myTitle">
-    <v-app-bar  app color="blue-gray" >
-      <v-toolbar-title >فرم استخدام تخصصی
-          </v-toolbar-title>
-      <v-spacer></v-spacer>
-    </v-app-bar>
+    <v-app >
+     
     <v-main >
-       
+       <Nav/>
+       <v-row>
+         <v-col class="col-lg-6">
+           <input-test/>
+            <!-- <UserAuth/>
+            <the-counter v-if="isAuth"/>
+            <product-two v-if="isAuth"/> -->
+         </v-col>
+       </v-row>
       
-        <UserAuth/>
-        <the-counter v-if="isAuth"/>
-        <product-two v-if="isAuth"/>
+        
         <!-- <NewFriend @add-contact="addContact"/>  -->
         <!-- <v-col class="col-lg-3 col-md-6 col-sm-12">
       
@@ -52,6 +54,9 @@ import Product from './components/Product.vue'
 import ProductTwo from './components/ProductTwo.vue'
 import TheCounter from './components/TheCounter.vue'
 import UserAuth from './components/UserAuth.vue'
+import Nav from './components/shopping/nav.vue'
+import ProductForShop from './components/shopping/productForShop.vue'
+import InputTest from './components/InputTest.vue'
 // import myFilter from './components/myFilter.vue'
 
 export default {
@@ -63,8 +68,12 @@ export default {
     ProductMenu,
     Product,
     TheCounter,
-    UserAuth
+    UserAuth,
+     Nav,
+    ProductForShop,
+    InputTest,
   },
+   
 data() {
     return {
        friends :[
@@ -79,6 +88,34 @@ data() {
          email:'mobin@gmail.com',
          isFavorite:true}
        ],
+        productShop: [
+        {
+          id: 'p1',
+          image:
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Books_HD_%288314929977%29.jpg/640px-Books_HD_%288314929977%29.jpg',
+          title: 'Book Collection',
+          description:
+            'A collection of must-read books. All-time classics included!',
+          price: 99.99,
+        },
+        {
+          id: 'p2',
+          image:
+            'https://upload.wikimedia.org/wikipedia/en/thumb/c/c9/Tent_at_High_Shelf_Camp_cropped.jpg/640px-Tent_at_High_Shelf_Camp_cropped.jpg',
+          title: 'Mountain Tent',
+          description: 'A tent for the ambitious outdoor tourist.',
+          price: 129.99,
+        },
+        {
+          id: 'p3',
+          image:
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg/640px-Good_Food_Display_-_NCI_Visuals_Online.jpg',
+          title: 'Food Box',
+          description:
+            'May be partially expired when it arrives but at least it is cheap!',
+          price: 6.99,
+        },
+      ],
       ActiveComponent: 'active-element',
       message: 'Vue is great!',
       currentUserInput:'',
@@ -130,12 +167,12 @@ computed:{
   padding: 0.15rem;
   /* border-style: solid; */
 }
-#app label {
+/* #app label {
   font-weight: bold;
   margin-right: 1rem;
   width: 7rem;
   display: inline-block;
-}
+} */
 #app button {
   cursor: pointer;
   border: 1px solid palevioletred;
@@ -149,12 +186,6 @@ computed:{
 #app button:active {
   background-color: palevioletred;
 }
-.innerPart{
-  margin:2rem auto;
-}
 
-.myTitle{
-  float: right;
-  text-align: right;
-}
+
 </style>

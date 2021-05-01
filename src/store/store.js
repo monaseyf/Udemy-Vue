@@ -8,7 +8,7 @@ export const store = new Vuex.Store({
     return {
     counter:0,
     isLoggedIn: false,
-      
+    obj:{message:''},  
       groups: {
         "GROUP A": {
           "name": "CLOTHING",
@@ -117,6 +117,9 @@ export const store = new Vuex.Store({
       },
       setAuth(state, payload) {
         state.isLoggedIn = payload.isAuth;
+      },
+      updateMessage (state, message) {
+        state.obj.message = message
       }
   },
   actions: {
@@ -137,7 +140,7 @@ export const store = new Vuex.Store({
       context.commit('setAuth',{isAuth : false})
     }
   }
-     
+ 
         
   
 
