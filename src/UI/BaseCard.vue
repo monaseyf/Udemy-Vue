@@ -1,8 +1,20 @@
 <template>
   <div>
-    <slot></slot>
+    <header v-if="$slots.header">
+      <slot name="header">
+        <!-- <h2> The Defualt</h2> -->
+      </slot>
+    </header>
+      <slot></slot>
   </div>
 </template>
+<script>
+export default {
+  mounted() {
+    console.log(this.$slots);
+  }
+}
+</script>
 
 <style scoped>
 div {

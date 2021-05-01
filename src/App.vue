@@ -7,9 +7,9 @@
        <v-row>
          <v-col class="col-lg-6">
            <input-test/>
-            <!-- <UserAuth/>
+             <UserAuth/>
             <the-counter v-if="isAuth"/>
-            <product-two v-if="isAuth"/> -->
+            <product-two v-if="isAuth"/> 
          </v-col>
        </v-row>
       

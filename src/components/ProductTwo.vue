@@ -1,7 +1,9 @@
 <template>
 <base-card>
-<div id="product-list-two">
-      <h2>Product List Two</h2>
+  <template v-slot:header>
+  <h2>Product List Two</h2>
+  </template>
+      <template v-slot:default id="product-list-two">
       <ul>
           <li v-for="product in products" :key="product.name">
                <span class="name">{{product.name}}</span>
@@ -10,8 +12,7 @@
       </ul>
       <p>{{counter}}</p>
       <button  @click="addOne">add me please</button>
-
-  </div>
+  </template>
   </base-card>
   
 </template>
