@@ -8,7 +8,8 @@ export const store = new Vuex.Store({
     return {
     counter:0,
     isLoggedIn: false,
-    obj:{message:''},  
+    obj: { message: '' },
+    value:0,
       groups: {
         "GROUP A": {
           "name": "CLOTHING",
@@ -78,9 +79,9 @@ export const store = new Vuex.Store({
   }, 
   
   getters: {
-    // enteredName: (state) => {
-    //     return state.enteredName
-    //   },
+    value: state => {
+      return state.value;
+    },
     finalCounter(state) {
       return state.counter * 2;
     },
@@ -109,9 +110,9 @@ export const store = new Vuex.Store({
     // }
     },
     mutations: {
-      // SET_MESSAGE: (state, newValue) => {
-      //   state.enteredName = newValue
-      // },
+      updateValue: (state, payload) => {
+        state.value = payload;
+      },
       increment(state) {
         state.counter = state.counter + 2;
       },
@@ -138,6 +139,9 @@ export const store = new Vuex.Store({
      },
     logout(context) {
       context.commit('setAuth',{isAuth : false})
+    },
+    updateValue({ commit }, payload) {
+      commit('updateValue',payload)
     }
   }
  

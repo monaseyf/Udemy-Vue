@@ -6,6 +6,12 @@
        <Nav/>
        <v-row>
          <v-col class="col-lg-6">
+           <course-goals>
+             <template #default="slotProps">
+                <h2>{{slotProps.item}}</h2>
+                <p>{{slotProps['another-prop']}}</p>
+             </template>
+           </course-goals>
            <input-test/>
            <course-goals/>
              <UserAuth/>
@@ -74,8 +80,9 @@ export default {
      Nav,
     ProductForShop,
     InputTest,
-    CourseGoals
+    CourseGoals,
   },
+    
    
 data() {
     return {
