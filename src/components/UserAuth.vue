@@ -1,6 +1,6 @@
 <template>
 <base-card>
-    
+      <p>{{value}}</p>
     <button @click="login" v-if="!isAuth">Login</button>
     <button @click="logout" v-if="isAuth">Log out</button>
 </base-card>
@@ -20,7 +20,11 @@ export default {
     computed:{
         isAuth(){
             return this.$store.getters.userIsAuthenticated;
-        }
-    }
+        },
+        value() {
+        return this.$store.getters.value;
+      }
+    },
+    
 }
 </script>

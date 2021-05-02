@@ -9,8 +9,8 @@
       <p>{{ message }}</p>
         </div> -->
 <div>
-    <input type="text" v-model="message" />
-    <button type="button" @click="submit">Submit</button>
+    <input type="text" :value="value" @input="updateValue"/>
+    <p>{{value}}</p>
   </div>
 </template>
 
@@ -24,15 +24,18 @@ export default {
         }
     },
     computed: {
-   message: {
-    get () {
-      return this.$store.state.obj.message
-    },
-    set (value) {
-      this.$store.commit('updateMessage', value)
-       console.log('value')
-    }
-  }
+      value() {
+        return this.$store.getters.value;
+      }
+  //  message: {
+  //   get () {
+  //     return this.$store.state.obj.message
+  //   },
+  //   set (value) {
+  //     this.$store.commit('updateMessage', value)
+  //      console.log('value')
+  //   }
+  // }
   },
   methods:{
       //  submit() {
@@ -54,9 +57,12 @@ export default {
     //     eventBus.$emit('showInput', this.message);
        
     // }
-    submit(){
-     console.log('message.value')
-}
+    // submit(){
+    //  console.log('message.value')
+    //         }
+    updateValue(event){
+      this.$store.dispatch('updateValue', event.target.value);
+    }
   },
 
 }
