@@ -7,6 +7,7 @@
        <v-row>
          <v-col class="col-lg-6">
            <input-test/>
+           <course-goals/>
              <UserAuth/>
             <the-counter v-if="isAuth"/>
             <product-two v-if="isAuth"/> 
@@ -57,6 +58,7 @@ import UserAuth from './components/UserAuth.vue'
 import Nav from './components/shopping/nav.vue'
 import ProductForShop from './components/shopping/productForShop.vue'
 import InputTest from './components/InputTest.vue'
+import CourseGoals from './components/CourseGoals.vue'
 // import myFilter from './components/myFilter.vue'
 
 export default {
@@ -72,6 +74,7 @@ export default {
      Nav,
     ProductForShop,
     InputTest,
+    CourseGoals
   },
    
 data() {
