@@ -9,6 +9,7 @@
         </nav>
         <div>
             <button>Login</button>
+            <button @click="confirm">Confirm</button>
         </div>
     </header>
      
@@ -17,7 +18,11 @@
 
 <script>
 export default {
-    
+ methods:{
+   confirm() {
+     this.$router.push('ProductTwo');
+   }
+ }   
 }
 </script>
 <style scoped>

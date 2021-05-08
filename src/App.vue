@@ -6,16 +6,8 @@
        <Nav/>
        <v-row>
          <v-col class="col-lg-6">
-           <course-goals>
-             <template #default="slotProps">
-                <h2>{{slotProps.item}}</h2>
-                <p>{{slotProps['another-prop']}}</p>
-             </template>
-           </course-goals>
            <input-test/>
-           <course-goals/>
              <UserAuth/>
-            <the-counter v-if="isAuth"/>
             <product-two v-if="isAuth"/> 
          </v-col>
        </v-row>
@@ -64,7 +56,7 @@ import UserAuth from './components/UserAuth.vue'
 import Nav from './components/shopping/nav.vue'
 import ProductForShop from './components/shopping/productForShop.vue'
 import InputTest from './components/InputTest.vue'
-import CourseGoals from './components/CourseGoals.vue'
+
 // import myFilter from './components/myFilter.vue'
 
 export default {
@@ -80,7 +72,7 @@ export default {
      Nav,
     ProductForShop,
     InputTest,
-    CourseGoals,
+ 
   },
     
    
