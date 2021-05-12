@@ -1,32 +1,18 @@
 <template>
   <div id="app">
     <v-app >
-     
+     <TheNavigation/> 
     <v-main >
-       <Nav/>
        <v-row>
-         <v-col class="col-lg-6">
-           <input-test/>
-             <UserAuth/>
-            <product-two v-if="isAuth"/> 
+         <v-col class="col-lg-12">
+           <learningExp/>
+           <userExperiences/>
+
          </v-col>
        </v-row>
-      
-        
-        <!-- <NewFriend @add-contact="addContact"/>  -->
-        <!-- <v-col class="col-lg-3 col-md-6 col-sm-12">
-      
-      </v-col>
-        <v-col class="col-lg-9 col-md-6 col-sm-12">
-      
-      </v-col> -->
-        <!-- <v-col class="col-lg-3 col-md-6 col-sm-12">
+        <!-- <NewFriend @add-contact="addContact"/> 
         <ProductMenu/>
-
-      </v-col>
-        <v-col class="col-lg-9 col-md-6 col-sm-12">
-        <Product/>
-      </v-col> -->
+        <Product/> -->
       <!-- <FriendContact v-for="friend in friends"
       :key="friend.id"
       :id="friend.id"
@@ -56,8 +42,9 @@ import UserAuth from './components/UserAuth.vue'
 import Nav from './components/shopping/nav.vue'
 import ProductForShop from './components/shopping/productForShop.vue'
 import InputTest from './components/InputTest.vue'
-
-// import myFilter from './components/myFilter.vue'
+import TheNavigation from './components/season13/nav/TheNavigation.vue'
+import LearningExp from './components/season12/learningExp.vue'
+import userExperiences from './components/season12/userExperiences.vue'
 
 export default {
   name: 'App',
@@ -72,7 +59,9 @@ export default {
      Nav,
     ProductForShop,
     InputTest,
- 
+    TheNavigation,
+    LearningExp,
+    userExperiences
   },
     
    
@@ -118,9 +107,27 @@ data() {
           price: 6.99,
         },
       ],
+       teams: [
+        { id: 't1', name: 'Frontend Engineers', members: ['u1', 'u2'] },
+        { id: 't2', name: 'Backend Engineers', members: ['u1', 'u2', 'u3'] },
+        { id: 't3', name: 'Client Consulting', members: ['u4', 'u5'] },
+      ],
+      users: [
+        { id: 'u1', fullName: 'Max Schwarz', role: 'Engineer' },
+        { id: 'u2', fullName: 'Praveen Kumar', role: 'Engineer' },
+        { id: 'u3', fullName: 'Julie Jones', role: 'Engineer' },
+        { id: 'u4', fullName: 'Alex Blackfield', role: 'Consultant' },
+        { id: 'u5', fullName: 'Marie Smith', role: 'Consultant' },
+      ],
       ActiveComponent: 'active-element',
       message: 'Vue is great!',
       currentUserInput:'',
+    };
+  },
+   provide() {
+    return {
+      teams: this.teams,
+      users: this.users,
     };
   },
   methods:{

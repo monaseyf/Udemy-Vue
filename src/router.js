@@ -6,11 +6,10 @@ export default new VueRouter({
   mode: "history",
   base: process.env.BASE_URL,
   routes: [
-    // {
-    //       path: "/",
-    //       name: "home",
-    //       component: Home,
-    //   },
+    {
+          path: "/",
+          redirect: "/teams"
+      },
       {
           path: "/ProductTwo",
           name: "ProductTwo",
@@ -28,7 +27,26 @@ export default new VueRouter({
         name: "productForShop",
         component: () =>
             import ("./components/shopping/productForShop.vue"),
-      }
-    
+      },
+      {
+        path: "/teams",
+        component: () =>
+            import ("./components/season13/teams/TeamsList.vue"),
+      },
+      {
+        path: "/users",
+        component: () =>
+            import ("./components/season13/users/UsersList.vue"),
+      },
+    {
+      path: '/teams/:teamId',
+      component: () =>
+            import ("./components/season13/teams/TeamMembers.vue"), props: true
+    },
+    {
+      path: '/:notFound(.*)',
+      component: () =>
+      import ("./components/season13/nav/NotFound.vue")
+    },
   ],
 });
