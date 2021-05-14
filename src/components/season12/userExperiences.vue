@@ -1,24 +1,24 @@
 <template>
     <section>
-        <base-card>
-        <h2>Submitted Experiences</h2>
-        <div>
-            <base-button @click="loadExperiences">Load Submitted Experiences</base-button>
-        </div>
-        <p v-if="isLoading">loading...</p>
-        <p v-else-if="!isLoading && error">{{error}}</p>
-        <p v-else-if="!isLoading && (!results || results.length === 0)">
-        No stored experiences found. Start adding some survey results first  
-        </p>
-        <ul v-else>
-            <survey-result
-            v-for="result in results"
-            :key= "result.id"
-            :name="result.name"
-            :rating="result.rating"
-            ></survey-result>
-        </ul>
-        </base-card>
+       <base-card>
+      <h2>Submitted Experiences</h2>
+      <div>
+        <button @click="LoadMyExp">Load Submitted Experiences</button>
+      </div>
+      <p v-if="isLoading">is Loading ...</p>
+      <p v-else-if="!isLoading && error">{{error}}</p>
+      <p v-else-if="!isLoading && (!results || results.length === 0)">
+          Load Submmited Experiences
+      </p>
+      <ul v-else>
+        <survey-result
+          v-for="result in results"
+          :key="result.id"
+          :name="result.name"
+          :rating="result.rating"
+        ></survey-result>
+      </ul>
+    </base-card>
     </section>
 </template>
 
@@ -38,26 +38,45 @@ export default {
         };
     },
     methods: {
-        loadExperiences() {
-    
-           fetch('https://myvuerequest-default-rtdb.firebaseio.com/surveys.json').then(
-               (response) => {
-                   if (response.ok) {
-                       return response.json();
-                   }
-                })
-                .then((date) => {
-                   const results = [];
-                   for (const id in data) {
-                       results.push({
-                           id: id,
-                           name: data[id].name,
-                           rating: data[id].rating,
-                       });
-                   }
-                   this.results = results;
-                });
+
+        LoadMyExp(){
+           this.isLoading = true
+           this.error = null
+            console.log('what is happening')
+                  fetch('https://vue-http-request-444ed-default-rtdb.asia-southeast1.firebasedatabase.app/surveys.json')
+        .then((response) => {
+          if (response.ok) {
+            return response.json();
+          }
+        })
+        .then((data) => {
+            this.isLoading = false
+          const results = [];
+          for (const id in data) {
+            results.push({
+              id: id,
+              name: data[id].name,
+              rating: data[id].rating,
+            });
+          }
+          this.results = results;
+        })
+        .catch((error) => {
+            console.log(error);
+            this.isLoading = false;
+            this.error = 'Failed to fetch data - please try again later'
+        });
         }
+    },
+    mounted(){
+        this.LoadMyExp();
     }
 }
 </script>
+<style scoped>
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+</style>
